@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        body { margin: 0; overflow: hidden; background: transparent; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight);
+        
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setClearColor(0x000000, 0); 
+        document.body.appendChild(renderer.domElement);
+
+        
+        const geometry = new THREE.ConeGeometry(1, 1, 4);
+        const material = new THREE.MeshNormalMaterial({ wireframe: false });
+        const cone = new THREE.Mesh(geometry, material);
+        scene.add(cone);
+
+        // Размещение конуса горизонтально
+        cone.rotation.x = Math.PI / 2;
+
+        // Камера сбоку
+        camera.position.y = -2; 
+        camera.position.x = 0;
+        camera.position.z = 0.8; 
+        camera.lookAt(cone.position); 
+
+        function animate() {
+            requestAnimationFrame(animate);
+            cone.rotation.y += 0.06; 
+            renderer.render(scene, camera);
+        }
+        animate();
+
+    
+        window.addEventListener('resize', () => {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+        });
+    </script>
+</body>
+</html>

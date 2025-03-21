@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        body { margin: 0; overflow: hidden; background: transparent; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+
+<div id="sphere-container"></div> 
+
+<script>
+   const container = document.getElementById('sphere-container');
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(50, 1, 1, 10);
+    camera.position.z = 2.5;
+
+    const renderer = new THREE.WebGLRenderer({ alpha: true }); 
+    renderer.setSize(400, 400);
+    container.appendChild(renderer.domElement);
+
+    const geometry = new THREE.SphereGeometry(1, 100, 100);
+    const texture = new THREE.TextureLoader().load('https://www.meme-arsenal.com/memes/c45de0917333e764bd7fc2ea8e487d8f.jpg');
+    const material = new THREE.MeshStandardMaterial({ map: texture });
+
+    const sphere = new THREE.Mesh(geometry, material);
+    scene.add(sphere);
+
+    const light = new THREE.PointLight(0xffffff, 1, 1000);
+    light.position.set(0, 100, 100);
+    scene.add(light);
+
+    function animate() {
+        requestAnimationFrame(animate);
+        sphere.rotation.y += 0.02;
+        renderer.render(scene, camera);
+    }
+
+    animate();
+</script>
+
+</body>
+</html>

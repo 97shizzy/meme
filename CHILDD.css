@@ -1,0 +1,448 @@
+body {
+	
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('fon.jpg');
+    margin: 0;
+      background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.scene {
+    width: 120px;
+    height: 120px;
+    perspective: 400px;
+	margin-left: -1100px;
+	position: absolute;
+	margin-right: 350px;
+	margin-top: -300px;
+}
+
+.cube {
+    width: 180px;
+    height: 180px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotateCube 8s infinite linear;
+	
+	
+}
+
+.face {
+	overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(from var(--angle), black, black);
+    background-size: 100% 100%;
+    animation: rotateGradient 1s linear infinite, rotateBorder 1s linear infinite;
+    
+	
+	
+    
+}
+
+
+.front  { transform: translateZ(90px); }
+.back   { transform: rotateY(180deg) translateZ(90px); }
+.left   { transform: rotateY(-90deg) translateZ(90px); }
+.right  { transform: rotateY(90deg) translateZ(90px); }
+.top    { transform: rotateX(90deg) translateZ(90px); }
+.bottom { transform: rotateX(-90deg) translateZ(90px); }
+
+
+@keyframes rotateGradient {
+    0% { --angle: 0deg; }
+    100% { --angle: 360deg; }
+}
+
+
+@keyframes rotateBorder {
+    0% { --angle: 0deg; }
+    100% { --angle: 360deg; }
+}
+
+
+@keyframes rotateCube {
+    0% { transform: ) rotateX(0deg) rotateZ(0deg) rotateY(0deg); }
+    100% { transform:  rotateY(360deg) rotateX(1080deg) rotateZ(1080deg) ; }
+}
+
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+.div {
+	font-size: 100px;
+	align-items: center;
+	display: flex;
+	 justify-content: center;
+    align-items: center;
+	text-align: center;
+	margin-top: -500px;
+	position: absolute;
+	background-color: white;
+}
+
+
+      .scen2e {
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            animation: rotate 4s infinite linear;
+        }
+
+        .sphere {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #ffffff, #ff4e50, #1fddff, #1e3c72);
+            position: absolute;
+            box-shadow: inset -30px -30px 60px rgba(0, 0, 0, 0.6),
+                        inset 20px 20px 40px rgba(255, 255, 255, 0.4),
+                        0 0 60px rgba(255, 255, 255, 0.2);
+        }
+
+        .sphere::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 50px;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+            border-radius: 50%;
+            opacity: 0.8;
+            filter: blur(5px);
+        }
+
+        .shading {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 70% 70%, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotateY(0deg) rotateX(0deg);
+            }
+            100% {
+                transform: rotateY(360deg) rotateX(10deg);
+            }
+        }
+@keyframes spinning {
+	0% {
+		transform: rotateZ(0deg);
+	}
+	100% {
+		transform: rotateZ(360deg);
+	}
+	
+}
+.spin {
+	
+	overflow: hidden;
+	animation: spinning 1.6s infinite linear;
+}
+@keyframes rofl {
+	0% {
+		transform: rotateX(0deg);
+	}
+	100% {
+		transform: rotateX(360deg);
+	}
+	
+}
+.rofl {
+	
+	overflow: hidden;
+	animation: rofl 1.6s infinite linear;
+}
+@keyframes utoro {
+	0% {
+		transform: rotateY(0deg);
+	}
+	100% {
+		transform: rotateY(360deg);
+	}
+	
+}
+.utoro {
+	
+	overflow: hidden;
+	animation: rofl 2s infinite linear;
+}
+.trin {
+	margin-left: 200px;
+}
+.iframe {
+	display: flex;
+	position: absolute;
+	margin-left: 1300px;
+	width: 800px;
+	height: 800px;
+    border: none;
+	
+}
+
+
+        .popal {
+            background-color: white;
+            width: 100vw;
+            height: 1080px;
+            color: black;
+			opacity:0;
+            position: absolute;
+            z-index: 99999;
+            text-align: center;
+            top: 0;
+			pointer-events: none;
+            left: 0;
+			padding-top: 50px;
+			transition: opacity 0.3s ease-in-out 2s;
+        }
+
+        .black {
+            
+            font-size: 100px;
+            animation: fbi 0.5s infinite linear;
+        }
+
+ @keyframes fbi {
+    0% { color: black; font-size: 100px; }
+    50% { 
+        color: red; 
+        text-shadow: 0 0 2px red, 0 0 10px red; 
+        
+    }
+    100% { color: black; font-size: 100px; }
+}
+
+
+  
+
+ a:hover + .popal {
+            opacity: 1;
+			 transition-delay: 0s; 
+        }
+a {
+	position: absolute;
+	display: flex;
+	margin-top: -800px;
+	color: white;
+	cursor: pointer;
+	text-align: center;
+	padding: 50px;
+	align-items: center;
+	
+	background-color: red;
+	animation: bb 0.3s infinite linear;
+	
+}
+@keyframes bb {
+	from {
+		box-shadow: none;
+	
+	}
+	to {
+		box-shadow: 0 0 30px red;
+	
+	}
+}
+.criframe {
+    height: 330px;
+    width: 720px;
+    opacity: 0;
+    position: absolute;
+    transition: opacity 0.3s ease;
+    pointer-events: none; 
+}
+
+.creator {
+    position: absolute;
+    display: flex;
+    background-color: white;
+    padding: 30px;
+    margin-top: 100px;
+    font-weight: bold;
+    font-family: Sans-serif;
+    color: black;
+    animation: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.cr {
+	margin-top: 250px;
+    position: absolute;
+    display: flex; 
+	margin-right: 1920px;
+
+}
+
+.creator:hover + .criframe, .donate {
+
+    pointer-events: auto; 
+}
+
+.cr:hover .creator, .donate {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.criframe:hover {
+    opacity: 1; 
+    pointer-events: auto;
+}
+
+.donate {
+	color: white;
+	font-size: 60px;
+	position: absolute;
+display: flex;
+text-align: center;
+font-weight: bold;
+font-family: Sans-serif;
+margin-top: -65px;
+opacity: 0;
+pointer-events: none;
+margin-left: 100px;
+white-space: nowrap;
+animation: sisi 1s infinite;
+}
+@keyframes sisi {
+	0% {
+		color: gold;
+		text-shadow: 0 0 10px gold;
+	}
+	50% {
+		color: yellow;
+		text-shadow: 0 0 10px yellow;
+	}
+	100% {
+		color: gold;
+		text-shadow: 0 0 10px gold;
+	}
+}
+.criframe:hover + .donate{
+	opacity: 1;
+}
+li {
+ 
+ display: flex;
+  list-style-type: none;
+  margin-top:0;
+font-size: 20px;
+animation: none;
+}
+ul {
+	margin-top: -230px;
+	position: absolute;
+ display: relative;
+}
+.police {
+	position: absolute;
+	display: flex;
+	margin-top: -400px;
+	margin-left: 1400px;
+	
+}
+.police1 {
+	position: absolute;
+	display: flex;
+	margin-top: -200px;
+	margin-left: 1400px;
+	
+}
+.police2 {
+	position: absolute;
+	display: flex;
+	margin-top: -430px;
+margin-left: 100px;
+	
+}
+ #sphere-container { 
+            position: absolute; 
+            top: 50px; 
+            left: 50px; 
+            width: 200px; 
+            height: 200px; 
+			display: flex;
+			margin-left: 710px;
+			margin-top: 250px;
+ }
+ .dollar {
+	 animation: dollar 0.2s infinite ;
+ }
+ @keyframes dollar {
+	0% {
+		color: green;
+		text-shadow: 0 0 10px green;
+	}
+	100% {
+		color: lightgreen;
+		text-shadow: 0 0 10px lightgreen;
+	}
+	
+}
+.iframe2 {
+	display: flex;
+	position: absolute;
+	border: 3px transparent;
+	margin-top: -200px;
+	width: 380px;
+	height: 380px;
+
+}
+
+.music-player {
+    position: fixed; 
+    top: 0px;
+    left: 0%; 
+	gap: 12px;
+    background: #333;
+    padding: 10px;
+    width: 300px;
+    z-index: 1000; 
+	
+
+}
+        button {
+            background: #444;
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+			font-weight: bold;
+			font-family: Sans-serif;
+        }
+        button:hover { background: #555; }
+        input[type="range"] { width: 159px; }
+
+#track-list {
+            display: none;
+			background-color: #333;
+            color: white;
+            padding: 10px;
+            list-style: none;
+            position: absolute;
+            left: 60%;
+            width: 200px;
+            border-radius: 10px;
+			margin-top: -35px;
+			
+        }
+        #track-list li {
+            padding: 5px;
+            cursor: pointer;
+        }
+        #track-list li:hover {
+            background: #555;
+        }
